@@ -6,8 +6,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-#   schedule:
-#   - cron: "0 5-20/2 * * *" 
+  schedule:
+  - cron: "0 5-20/2 * * *" 
 
   workflow_dispatch:
 jobs:
@@ -15,10 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-          cache: 'pip' # caching pip dependencies
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.4
       - run: pip install -r requirements.txt
       - run: pip install telebot
       - run: pip install requests
