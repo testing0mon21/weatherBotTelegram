@@ -65,8 +65,11 @@ def getWeatherFromCity(city: str, api_token: str):
 
 def main():
     api_telegram = environ.get("TELEGRAM_API_KEY")
+    print(f"api_telegram: - {api_telegram}")
     api_weather1 = environ.get("WEATHER_API_KEY")
+    print(f"api_weather1 - {api_weather1}")
     chat_id = environ.get("CHAT_ID2")
+    print(f"chat_id - {chat_id}")
     bot = telebot.TeleBot(api_telegram)
     weather_in_novomoskovsk = getWeatherFromCity("Novomoskovsk", api_weather1)
     weather_in_gagarin = getWeatherFromCity("Gagarin", api_weather1)
