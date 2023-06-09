@@ -19,4 +19,9 @@ jobs:
         uses: actions/setup-python@v3.1.4
       - run: pip install telebot
       - run: pip install requests
-      - run: python WeatherBot.py
+      - name: Start Weather bot
+        env:
+          CHAT_ID2: ${{ env.CHAT_ID2 }}
+          TELEGRAM_API_KEY: ${{ env.TELEGRAM_API_KEY }}
+          WEATHER_API_KEY: ${{ env.WEATHER_API_KEY }}
+        run: python WeatherBot.py
