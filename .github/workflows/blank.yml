@@ -11,12 +11,8 @@ on:
 
   workflow_dispatch:
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
-    env:
-      CHAT_ID2: ${{ env.CHAT_ID2 }}
-      TELEGRAM_API_KEY: ${{ env.TELEGRAM_API_KEY }}
-      WEATHER_API_KEY: ${{ env.WEATHER_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -24,4 +20,8 @@ jobs:
       - run: pip install telebot
       - run: pip install requests
       - name: Start Weather bot
+        env:
+          CHAT_ID2: ${{ env.CHAT_ID2 }}
+          TELEGRAM_API_KEY: ${{ env.TELEGRAM_API_KEY }}
+          WEATHER_API_KEY: ${{ env.WEATHER_API_KEY }}
         run: python WeatherBot.py
