@@ -4,6 +4,7 @@ name: CI
 on:
   schedule:
     - cron: '0 9-21/2 * * *'
+    
 jobs:
   job1:
     environment: TEST_SECRET
